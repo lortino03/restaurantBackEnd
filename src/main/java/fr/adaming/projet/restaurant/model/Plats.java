@@ -23,7 +23,7 @@ public class Plats {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	@Column(name="plats")
+	@Column(name="Id_plats")
 	public long getIdPlats() {
 		return idPlats;
 	}
