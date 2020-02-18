@@ -40,7 +40,7 @@ public class Reservation {
 			public void setClients(Clients client) {
 				this.client = client;
 			}
-			@Column(name="date  de resa")
+			@Column(name="date_resa")
 			@JsonFormat(pattern = "yyyy-MM-dd")
 			public Date getDateDeResa() {
 				return dateDeResa;

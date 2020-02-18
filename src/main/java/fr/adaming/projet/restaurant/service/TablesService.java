@@ -51,9 +51,4 @@ public class TablesService implements ITablesService {
 		return tablesRepository.findAll();
 	}
 
-	@Override
-	public List<Tables> findALL() {
-		return tablesRepository.findAll();
-	}
-
 }

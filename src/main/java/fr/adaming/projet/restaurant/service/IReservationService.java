@@ -19,7 +19,5 @@ public interface IReservationService {
 
 	public List<Reservation> getAll();
 
-	List<Reservation> findALL();
-
 
 }

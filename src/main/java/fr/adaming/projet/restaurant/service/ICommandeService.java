@@ -14,7 +14,7 @@ public interface ICommandeService {
 	public boolean deleteCommande1(long id);
 	public Commande getOneCommande(long id);
 	public List<Commande> getAll();
-	List<Commande> findALL();
+
 	
 		
 	

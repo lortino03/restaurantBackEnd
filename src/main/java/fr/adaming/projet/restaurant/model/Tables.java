@@ -16,7 +16,6 @@ public class Tables {
 	private long idTable;
 	private long NbrePlace;
 	private Employes employe;
-	private Commande commande;
 	
 	
 	@Id
@@ -48,27 +47,23 @@ public class Tables {
 	public void setEmployes(Employes employe) {
 		this.employe = employe;
 	}
-	@ManyToOne
-	@JoinColumn(name="id_commande")
-	public Commande getCommande() {
-		return commande;
-	}
-
 	
-	public void setIdCommande(Commande commande) {
-		this.commande = commande;
-	}
-
 // constructeurs
 	public Tables(long idTable, long nbrePlace, Employes employe, Commande commande) {
 		this.idTable = idTable;
 		NbrePlace = nbrePlace;
 		this.employe = employe;
-		this.commande =commande;
+	
 	}
 	public Tables() {
 		super();
 	}
+
+	@Override
+	public String toString() {
+		return "Tables [NbrePlace=" + NbrePlace + ", employe=" + employe + "]";
+	}
+	
 
 	
 

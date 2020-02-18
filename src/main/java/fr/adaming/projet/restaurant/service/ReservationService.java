@@ -46,8 +46,4 @@ public class ReservationService implements IReservationService{
 		return reservationRespository.findAll();
 	}
 
-	public List<Reservation> findALL() {
-		return reservationRespository.findAll();
-	}
-
 }

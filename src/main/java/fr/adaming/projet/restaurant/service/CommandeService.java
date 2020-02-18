@@ -8,7 +8,7 @@ import fr.adaming.projet.restaurant.model.Commande;
 import fr.adaming.projet.restaurant.repository.ICommandeRepository;
 
 @Service
-public class CommandeService {
+public class CommandeService implements ICommandeService{
 	
 	@Autowired
 	ICommandeRepository commandeRespository;
@@ -49,10 +49,6 @@ public class CommandeService {
 		return commandeRespository.findAll();
 	}
 
-	
-	public List<Commande> findALL() {
-		return commandeRespository.findAll();
-	}
 
 
 }

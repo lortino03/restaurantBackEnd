@@ -2,15 +2,13 @@ package fr.adaming.projet.restaurant.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import fr.adaming.projet.restaurant.model.Plats;
 import fr.adaming.projet.restaurant.repository.IPlatsRepository;
 
 @Service
-public class PlatsService {
+public class PlatsService implements IPlatsService{
 	@Autowired
 	IPlatsRepository platsRespository;
 
@@ -42,10 +40,6 @@ public class PlatsService {
 	}
 
 	public List<Plats> getAll() {
-		return platsRespository.findAll();
-	}
-
-	public List<Plats> findALL() {
 		return platsRespository.findAll();
 	}
 

@@ -19,6 +19,6 @@ public interface IClientsService {
 
 	public List<Clients> getAll();
 
-	List<Clients> findALL();
+	//List<Clients> findALL();
 
 }

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -18,6 +20,7 @@ public class Commande {
 	private Date dateDeCommande;
 	private String plats;
 	private float prix;
+	private Tables tables;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +35,7 @@ public class Commande {
 					this.idCommande = idCommande;
 				}
 			
-				@Column(name="date de commande")
+				@Column(name="date_commande")
 				@JsonFormat(pattern = "yyyy-MM-dd")
 				public Date getDateDeCommande() {
 					return dateDeCommande;
@@ -62,12 +65,24 @@ public class Commande {
 					this.prix = prix;
 				}
 				
-	
-	public Commande(long idCommande, Date dateDeCommande, String plats, float prix) {
+				@ManyToOne
+				@JoinColumn(name="id_table")
+				public Tables getTables() {
+					return tables;
+				}
+
+
+				public void setTables(Tables tables) {
+					this.tables = tables;
+				}
+
+
+	public Commande(long idCommande, Date dateDeCommande, String plats, float prix,Tables tables) {
 		this.idCommande = idCommande;
 		this.dateDeCommande = dateDeCommande;
 		this.plats = plats;
 		this.prix = prix;
+		this.tables=tables;
 	}
 
 
@@ -78,7 +93,7 @@ public class Commande {
 
 	@Override
 	public String toString() {
-		return "Commande [dateDeCommande=" + dateDeCommande + ", plats=" + plats + ", prix=" + prix + "]";
+		return "Commande [dateDeCommande=" + dateDeCommande + ", plats=" + plats + ", prix=" + prix+",tables=" + tables +"]";
 	}
 	
 	

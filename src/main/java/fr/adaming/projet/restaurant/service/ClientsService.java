@@ -1,6 +1,7 @@
 package fr.adaming.projet.restaurant.service;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import fr.adaming.projet.restaurant.repository.IClientsRepository;
 @Service
 
 public class ClientsService implements IClientsService {
+	
 	@Autowired
 	IClientsRepository clientsRespository;
 
@@ -50,10 +52,10 @@ public class ClientsService implements IClientsService {
 	public List<Clients> getAll() {
 		return clientsRespository.findAll();
 	}
-
-	@Override
-	public List<Clients> findALL() {
-		return clientsRespository.findAll();
-	}
+//
+//	@Override
+//	public List<Clients> findALL() {
+//		return clientsRespository.findAll();
+//	}
 
 }

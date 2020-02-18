@@ -19,7 +19,5 @@ public interface ITablesService {
 
 	public List<Tables> getAll();
 
-	List<Tables> findALL();
-
 
 }

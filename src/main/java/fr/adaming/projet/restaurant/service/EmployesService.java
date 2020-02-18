@@ -9,26 +9,26 @@ import fr.adaming.projet.restaurant.model.Employes;
 import fr.adaming.projet.restaurant.repository.IEmployesRepository;
 
 @Service
-public class EmployesService {
+public class EmployesService implements IEmployesService{
 	
 	@Autowired
-	IEmployesRepository employeRespository;
+	IEmployesRepository employesRespository;
 
 	
 	public Employes saveEmployes(Employes employes) {
-		return employeRespository.save(employes);
+		return employesRespository.save(employes);
 	}
 
 	
 	public void deleteEmployes(long id) {
-		employeRespository.deleteById(id);
+		employesRespository.deleteById(id);
 
 	}
 
 	
 	public boolean deleteEmployes1(long id) {
 		try {
-			employeRespository.deleteById(id);
+			employesRespository.deleteById(id);
 		} catch (Exception e) {
 			return false;
 		}
@@ -37,7 +37,7 @@ public class EmployesService {
 
 
 	public Employes getOneEmployes(long id) {
-		Optional<Employes> EmployesOptional = employeRespository.findById(id);
+		Optional<Employes> EmployesOptional = employesRespository.findById(id);
 		Employes employes = new Employes();
 		if (EmployesOptional.isPresent()) {
 			employes = EmployesOptional.get();
@@ -47,13 +47,9 @@ public class EmployesService {
 
 	
 	public List<Employes> getAll() {
-		return employeRespository.findAll();
+		return employesRespository.findAll();
 	}
 
-	
-	public List<Employes> findALL() {
-		return employeRespository.findAll();
-	}
 
 
 }
