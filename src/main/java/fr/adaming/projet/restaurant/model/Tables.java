@@ -54,6 +54,7 @@ public class Tables {
 		return commande;
 	}
 
+	
 	public void setIdCommande(Commande commande) {
 		this.commande = commande;
 	}
@@ -65,7 +66,10 @@ public class Tables {
 		this.employe = employe;
 		this.commande =commande;
 	}
-	
+	public Tables() {
+		super();
+	}
+
 	
 
 }
