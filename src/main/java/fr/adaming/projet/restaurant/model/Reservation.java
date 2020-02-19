@@ -21,6 +21,7 @@ public class Reservation {
 	private Clients client;
 	private Date dateDeResa;
 	private Tables table;
+	private long NbrePersonne;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,14 +57,21 @@ public class Reservation {
 			public void setTables(Tables table) {
 				this.table = table;
 			}
-			
-			
-			public Reservation(long idReservation, Clients client, Date dateDeResa, Tables table) {
+		
+			@Column(name="nbrePersonne")
+			public long getNbrePersonne() {
+				return NbrePersonne;
+			}
+			public void setNbrePersonne(long nbrePersonne) {
+				NbrePersonne = nbrePersonne;
+			}
+			public Reservation(long idReservation, Clients client, Date dateDeResa, Tables table, long NbrePersonne) {
 				super();
 				this.idReservation = idReservation;
 				this.client = client;
 				this.dateDeResa = dateDeResa;
 				this.table = table;
+				this.NbrePersonne=NbrePersonne;
 			}
 			public Reservation() {
 				
@@ -71,7 +79,7 @@ public class Reservation {
 			
 			@Override
 			public String toString() {
-				return "Reservation [client=" + client + ", dateDeResa=" + dateDeResa + ", table=" + table + "]";
+				return "Reservation [client=" + client + ", dateDeResa=" + dateDeResa + ", table=" + table + ",NbrePersonne="+ NbrePersonne+"]";
 			}
 	
 			
