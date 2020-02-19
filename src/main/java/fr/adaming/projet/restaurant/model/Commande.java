@@ -18,8 +18,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Commande {
 	private long idCommande;
 	private Date dateDeCommande;
-	private String plats;
-	private float prix;
 	private Tables tables;
 	
 	@Id
@@ -45,26 +43,6 @@ public class Commande {
 					this.dateDeCommande = dateDeCommande;
 				}
 			
-				@Column(name="Plats")
-				public String getPlats() {
-					return plats;
-				}
-			
-			
-				public void setPlats(String plats) {
-					this.plats = plats;
-				}
-			
-				@Column(name="Prix")
-				public float getPrix() {
-					return prix;
-				}
-			
-			
-				public void setPrix(float prix) {
-					this.prix = prix;
-				}
-				
 				@ManyToOne
 				@JoinColumn(name="id_table")
 				public Tables getTables() {
@@ -77,11 +55,9 @@ public class Commande {
 				}
 
 
-	public Commande(long idCommande, Date dateDeCommande, String plats, float prix,Tables tables) {
+	public Commande(long idCommande, Date dateDeCommande,Tables tables) {
 		this.idCommande = idCommande;
 		this.dateDeCommande = dateDeCommande;
-		this.plats = plats;
-		this.prix = prix;
 		this.tables=tables;
 	}
 
@@ -93,7 +69,7 @@ public class Commande {
 
 	@Override
 	public String toString() {
-		return "Commande [dateDeCommande=" + dateDeCommande + ", plats=" + plats + ", prix=" + prix+",tables=" + tables +"]";
+		return "Commande [dateDeCommande=" + dateDeCommande + ",tables=" + tables +"]";
 	}
 	
 	

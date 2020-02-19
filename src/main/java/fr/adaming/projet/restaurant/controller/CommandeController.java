@@ -59,8 +59,6 @@ public class CommandeController {
 		Commande c1=new Commande();
 		c1= commandeService.getOneCommande(id);
 		c1.setDateDeCommande(commande.getDateDeCommande());
-		c1.setPlats(commande.getPlats());
-		c1.setPrix(commande.getPrix());
 		return commandeService.saveCommande(c1);
 		
 	}
