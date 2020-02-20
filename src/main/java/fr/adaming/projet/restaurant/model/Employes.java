@@ -14,6 +14,8 @@ public class Employes {
 	private long idEmploye;
 	private String nom;
 	private String prenom;
+	private String login;
+	private String pwd;
 	private String status;
 	
 	@Id
@@ -55,14 +57,36 @@ public class Employes {
 				public void setStatus(String status) {
 					this.status = status;
 				}
+				
+
+				@Column(name="login")
+				public String getLogin() {
+					return login;
+				}
 
 
+				public void setLogin(String login) {
+					this.login = login;
+				}
 
-	public Employes(long idEmploye, String nom, String prenom, String status) {
+				@Column(name="MdPasse")
+				public String getPwd() {
+					return pwd;
+				}
+
+
+				public void setPwd(String pwd) {
+					this.pwd = pwd;
+				}
+
+
+	public Employes(long idEmploye, String nom, String prenom, String login, String pwd,String status) {
 		super();
 		this.idEmploye = idEmploye;
 		this.nom = nom;
 		this.prenom = prenom;
+		this.login=login;
+		this.pwd=pwd;
 		this.status = status;
 	}
 
@@ -73,7 +97,7 @@ public class Employes {
 
 	@Override
 	public String toString() {
-		return "Employes [nom=" + nom + ", prenom=" + prenom + ", status=" + status + "]";
+		return "Employes [nom=" + nom + ", prenom=" + prenom + ",login="+ login + ",pwd=" + pwd + ", status=" + status + "]";
 	}
 	
 	

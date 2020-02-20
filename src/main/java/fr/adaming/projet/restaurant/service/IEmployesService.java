@@ -18,6 +18,8 @@ public interface IEmployesService {
 	public Employes getOneEmployes(long id);
 
 	public List<Employes> getAll();
+	
+	public boolean findByLogin(Employes employes);
 
 
 }
