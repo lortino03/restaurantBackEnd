@@ -59,10 +59,11 @@ public class ReservationController {
 	public Reservation UpdateReservation(@PathVariable long id, @RequestBody Reservation reservation) {
 		Reservation R1=new Reservation();
 		R1= reservationService.getOneReservation(id);
-		R1.setClients(reservation.getClients());
-		R1.setDateDeResa(reservation.getDateDeResa());
-		R1.setTables(reservation.getTables());
+		R1.setNom(reservation.getNom());
+		R1.setTelephone(reservation.getTelephone());
 		R1.setNbrePersonne(reservation.getNbrePersonne());
+		R1.setDateDeResa(reservation.getDateDeResa());
+		R1.setHeure(reservation.getHeure());
 		return reservationService.saveReservation(R1);
 		
 	}
