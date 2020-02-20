@@ -14,6 +14,7 @@ import javax.persistence.Table;
 public class Tables {
 	
 	private long idTable;
+	private String numero;
 	private long NbrePlace;
 	private Employes employe;
 	
@@ -29,6 +30,16 @@ public class Tables {
 	public void setIdTable(long idTable) {
 		this.idTable = idTable;
 	}
+	
+	@Column(name="Numero")
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
 	@Column(name="Places")
 	public long getNbrePlace() {
 		return NbrePlace;
@@ -48,20 +59,24 @@ public class Tables {
 		this.employe = employe;
 	}
 	
+
+	
 // constructeurs
-	public Tables(long idTable, long nbrePlace, Employes employe, Commande commande) {
+	public Tables(long idTable,String numero, long nbrePlace, Employes employe) {
 		this.idTable = idTable;
-		NbrePlace = nbrePlace;
+		this.numero=numero;
+		this.NbrePlace = nbrePlace;
 		this.employe = employe;
 	
 	}
+	
 	public Tables() {
 		super();
 	}
 
 	@Override
 	public String toString() {
-		return "Tables [NbrePlace=" + NbrePlace + ", employe=" + employe + "]";
+		return "Tables [numero=" + numero + ",NbrePlace=" + NbrePlace + ", employe=" + employe + "]";
 	}
 	
 

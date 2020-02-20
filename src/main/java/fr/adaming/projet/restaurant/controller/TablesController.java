@@ -57,6 +57,9 @@ public class TablesController {
 	public Tables UpdateTables(@PathVariable long id, @RequestBody Tables tables) {
 		Tables t1=new Tables();
 		t1= tablesService.getOneTables(id);
+		t1.setNumero(tables.getNumero());
+		t1.setNbrePlace(tables.getNbrePlace());
+		t1.setEmployes(tables.getEmployes());
 		return tablesService.saveTables(t1);
 		
 	}
