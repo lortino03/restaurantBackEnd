@@ -57,10 +57,9 @@ public class PlatsController {
 	public Plats UpdatePlats(@PathVariable long id, @RequestBody Plats plats) {
 		Plats p1=new Plats();
 		p1= platsService.getOnePlats(id);
-		p1.setCommande(plats.getCommande());
 		p1.setLibelle(plats.getLibelle());
-		p1.setPrix(plats.getPrix());
 		p1.setQuantite(plats.getQuantite());
+		p1.setPrix(plats.getPrix());
 		return platsService.savePlats(p1);
 		
 	}

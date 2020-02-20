@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +15,6 @@ public class Plats {
 	private String libelle;
 	private long quantite;
 	private float prix;
-	private Commande Commande;
 	
 	
 	@Id
@@ -55,24 +52,14 @@ public class Plats {
 	public void setPrix(float prix) {
 		this.prix = prix;
 	}
-	@ManyToOne
-	@JoinColumn(name="id_commande")
-	public Commande getCommande() {
-		return Commande;
-	}
 
-	public void setCommande(Commande commande) {
-		this.Commande = commande;
-	}
 	
-	
-	public Plats(long idPlats, String libelle, long quantite, float prix, Commande Commande) {
+	public Plats(long idPlats, String libelle, long quantite, float prix) {
 		super();
 		this.idPlats = idPlats;
 		this.libelle = libelle;
 		this.quantite = quantite;
 		this.prix = prix;
-		this.Commande = Commande;
 	}
 
 	public Plats() {
@@ -81,8 +68,7 @@ public class Plats {
 
 	@Override
 	public String toString() {
-		return "Plats [libelle=" + libelle + ", quantite=" + quantite + ", prix=" + prix + ", idCommande=" + Commande
-				+ "]";
+		return "Plats [libelle=" + libelle + ", quantite=" + quantite + ", prix=" + prix + " ]";
 	}
 
 
