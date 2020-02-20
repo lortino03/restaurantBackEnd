@@ -2,10 +2,8 @@ package fr.adaming.projet.restaurant.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import fr.adaming.projet.restaurant.model.Tables;
 import fr.adaming.projet.restaurant.repository.ITablesRepository;
 

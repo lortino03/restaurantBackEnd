@@ -58,8 +58,8 @@ public class PlatsController {
 		Plats p1=new Plats();
 		p1= platsService.getOnePlats(id);
 		p1.setLibelle(plats.getLibelle());
-		p1.setQuantite(plats.getQuantite());
 		p1.setPrix(plats.getPrix());
+		p1.setQuantite(plats.getQuantite());
 		return platsService.savePlats(p1);
 		
 	}
