@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -20,6 +22,8 @@ public class Reservation {
 	private long NbrePersonne;
 	private Date dateDeResa;
 	private String horaire;
+	private Clients client;
+	private Tables tables;
 
 	
 	@Id
@@ -71,7 +75,23 @@ public class Reservation {
 				this.horaire = heure;
 			}
 			
-			public Reservation(long idReservation, String nom,String telephone, long NbrePersonne, Date dateDeResa,String horaire) {
+			@ManyToOne
+			@JoinColumn(name="id_client")
+			public Clients getClient() {
+				return client;
+			}
+			public void setClient(Clients client) {
+				this.client = client;
+			}
+			@ManyToOne
+			@JoinColumn(name="id_table")
+			public Tables getTables() {
+				return tables;
+			}
+			public void setTables(Tables tables) {
+				this.tables = tables;
+			}
+			public Reservation(long idReservation, String nom,String telephone, long NbrePersonne, Date dateDeResa,String horaire,Clients client,Tables tables) {
 				super();
 				this.idReservation = idReservation;
 				this.nom = nom;
@@ -79,6 +99,8 @@ public class Reservation {
 				this.NbrePersonne=NbrePersonne;
 				this.dateDeResa = dateDeResa;
 				this.horaire=horaire;
+				this.client=client;
+				this.tables=tables;
 			
 			}
 		

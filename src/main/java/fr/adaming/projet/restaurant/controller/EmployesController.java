@@ -39,6 +39,7 @@ public class EmployesController {
 	// WEBSERVICE POUR AJOUTER UN EMPLOYE
 	@PostMapping
 	public Employes addOne(@RequestBody Employes employes) {
+		employes.setPwd(bCryptPasswordEncoder.encode(employes.getPwd()));
 		return employesService.saveEmployes(employes);
 	}
 	
@@ -95,8 +96,11 @@ public class EmployesController {
 			{
 				Map<String, Object> claims = new HashMap<String, Object>();
 				claims.put("idEmploye", util.getIdEmploye());
+				claims.put("nom", util.getNom());
+				claims.put("prenom", util.getPrenom());
 				claims.put("idLogin", util.getLogin());
 				claims.put("idpwd", util.getPwd());
+				claims.put("status", util.getStatus());
 				String jws = Jwts.builder().addClaims(claims).signWith(keys).compact(); // specifier la clé d'encodage
 				// jws contiendra la chaine de caratere du token						// et pour ca , on instancie
 																						// cette clé en haut la, le . compact() ferme le token

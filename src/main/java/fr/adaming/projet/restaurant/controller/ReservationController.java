@@ -64,6 +64,8 @@ public class ReservationController {
 		R1.setNbrePersonne(reservation.getNbrePersonne());
 		R1.setDateDeResa(reservation.getDateDeResa());
 		R1.setHeure(reservation.getHeure());
+		R1.setClient(reservation.getClient());
+		R1.setTables(reservation.getTables());
 		return reservationService.saveReservation(R1);
 		
 	}
