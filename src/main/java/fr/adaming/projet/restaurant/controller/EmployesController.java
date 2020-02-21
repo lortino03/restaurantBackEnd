@@ -1,7 +1,9 @@
 package fr.adaming.projet.restaurant.controller;
 
+import java.security.Key;
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,13 +17,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import fr.adaming.projet.restaurant.model.Employes;
+import fr.adaming.projet.restaurant.model.Token;
 import fr.adaming.projet.restaurant.service.IEmployesService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 
 
 @RestController
 @RequestMapping("employes")
 @CrossOrigin("http://localhost:4200")
 public class EmployesController {
+	Key keys = Keys.secretKeyFor(SignatureAlgorithm.HS256); // encodage de l'algorythm d'encodage
 	
 	@Autowired
 	IEmployesService employesService;
@@ -77,6 +84,29 @@ public class EmployesController {
 		return employesService.saveEmployes(E1);
 		
 	}
+	
+	@PostMapping("/token") // WEBSERVICE APOUR SE CONNECTER AVEC TOKEN
+	public Token AfficherUtilisateurParLogin(@RequestBody Employes employes) {
+		Employes util = new Employes();
+		util = employesService.findByLogin1(employes);
+		if (util != null) {
+			if (bCryptPasswordEncoder.matches(employes.getPwd(), util.getPwd()))
+				;
+			{
+				Map<String, Object> claims = new HashMap<String, Object>();
+				claims.put("idEmploye", util.getIdEmploye());
+				claims.put("idLogin", util.getLogin());
+				claims.put("idpwd", util.getPwd());
+				String jws = Jwts.builder().addClaims(claims).signWith(keys).compact(); // specifier la clé d'encodage
+				// jws contiendra la chaine de caratere du token						// et pour ca , on instancie
+																						// cette clé en haut la, le . compact() ferme le token
+ 				Token t = new Token();				// crée pour l'envoyer sous forme de JSOn avec le webserv qu'on a cree
+				t.setToken(jws);
+				return t;
 
+			}
+		}
+		return null;
+	}
 
 }

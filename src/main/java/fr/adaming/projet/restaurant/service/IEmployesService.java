@@ -1,9 +1,7 @@
 package fr.adaming.projet.restaurant.service;
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import fr.adaming.projet.restaurant.model.Employes;
 
 @Service
@@ -20,6 +18,9 @@ public interface IEmployesService {
 	public List<Employes> getAll();
 	
 	public boolean findByLogin(Employes employes);
+	
+	public Employes findByLogin1(Employes employes);
+	
 
 
 }

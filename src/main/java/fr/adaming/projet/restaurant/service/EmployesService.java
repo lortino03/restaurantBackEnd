@@ -59,4 +59,14 @@ public class EmployesService implements IEmployesService {
 		return true;
 
 	}
+
+	@Override
+	public Employes findByLogin1(Employes employes) {
+		Employes emplcripte = employesRespository.findByLogin(employes.getLogin());
+		if (emplcripte == null)
+			return null;
+		if (bCryptPasswordEncoder.matches(employes.getPwd(), emplcripte.getPwd()))
+			;
+		return employes;
+	}
 }
